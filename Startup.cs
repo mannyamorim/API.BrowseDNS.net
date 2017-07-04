@@ -35,6 +35,8 @@ namespace dns_api
             var client = new LookupClient();
             client.UseCache = true;
             services.AddSingleton<ILookupClient>(client);
+
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +44,9 @@ namespace dns_api
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            app.UseCors(builder =>
+                builder.AllowAnyOrigin());
 
             app.UseMvc();
         }
