@@ -1,0 +1,8 @@
+/home/emmanuel/coding-projects/dns-api/bin/Debug/netcoreapp1.1/dns-api.deps.json
+/home/emmanuel/coding-projects/dns-api/bin/Debug/netcoreapp1.1/dns-api.runtimeconfig.json
+/home/emmanuel/coding-projects/dns-api/bin/Debug/netcoreapp1.1/dns-api.runtimeconfig.dev.json
+/home/emmanuel/coding-projects/dns-api/bin/Debug/netcoreapp1.1/dns-api.dll
+/home/emmanuel/coding-projects/dns-api/bin/Debug/netcoreapp1.1/dns-api.pdb
+/home/emmanuel/coding-projects/dns-api/obj/Debug/netcoreapp1.1/dns-api.AssemblyInfo.cs
+/home/emmanuel/coding-projects/dns-api/obj/Debug/netcoreapp1.1/dns-api.dll
+/home/emmanuel/coding-projects/dns-api/obj/Debug/netcoreapp1.1/dns-api.pdb

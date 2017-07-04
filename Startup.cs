@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using DnsClient;
+
 namespace dns_api
 {
     public class Startup
@@ -29,6 +31,10 @@ namespace dns_api
         {
             // Add framework services.
             services.AddMvc();
+
+            var client = new LookupClient();
+            client.UseCache = true;
+            services.AddSingleton<ILookupClient>(client);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
