@@ -15,12 +15,25 @@ namespace dns_api.Controllers
 
         public Version1(ILookupClient client)
         {
-            if(client == null)
+            _client = client ?? throw new ArgumentNullException(nameof(client));
+        }
+        
+        private OkObjectResult CreateRecordResult<T>(IDnsQueryResponse response, IEnumerable<T> records)
+        {
+            return Ok(new
             {
-                throw new ArgumentNullException(nameof(client));
-            }
-
-            _client = client;
+                Headers = new
+                {
+                    AuthoritativeAnswer = response.Header.HasAuthorityAnswer,
+                    TruncatedResponse = response.Header.ResultTruncated,
+                    RecursionDesired = response.Header.RecursionDesired,
+                    RecursionAvailable = response.Header.RecursionAvailable,
+                    AuthenticData = response.Header.IsAuthenticData,
+                    CheckingDisabled = response.Header.IsCheckingDisabled,
+                },
+                NameServer = response.NameServer.Endpoint.Address.ToString(),
+                Records = records,
+            });
         }
 
         // GET api/v1/a
@@ -33,7 +46,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.ARecords();
             var returnModels = records.Select(ReturnModelA.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
 
         // GET api/v1/aaaa
@@ -46,7 +59,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.AaaaRecords();
             var returnModels = records.Select(ReturnModelAaaa.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
 
 
@@ -60,7 +73,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.CaaRecords();
             var returnModels = records.Select(ReturnModelCaa.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
 
         // GET api/v1/mx
@@ -73,7 +86,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.MxRecords();
             var returnModels = records.Select(ReturnModelMx.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
 
         // GET api/v1/ns
@@ -86,7 +99,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.NsRecords();
             var returnModels = records.Select(ReturnModelNs.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
 
         // GET api/v1/srv
@@ -99,7 +112,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.SrvRecords();
             var returnModels = records.Select(ReturnModelSrv.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
 
         // GET api/v1/txt
@@ -112,7 +125,7 @@ namespace dns_api.Controllers
 
             var records = response.Answers.TxtRecords();
             var returnModels = records.Select(ReturnModelTxt.FromRecord);
-            return Ok(returnModels);
+            return CreateRecordResult(response, returnModels);
         }
     }
 }
