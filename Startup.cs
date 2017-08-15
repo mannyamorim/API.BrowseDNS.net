@@ -33,14 +33,10 @@ namespace dns_api
             services.AddMvc();
 
             var client = new LookupClient(
-                new System.Net.IPAddress(new byte[] { 209, 244, 0, 3 }),    //Level3 Primary DNS server
-                new System.Net.IPAddress(new byte[] { 209, 244, 0, 4 }),    //Level3 Secondary DNS server
-                new System.Net.IPAddress(new byte[] { 64, 6, 64, 6 }),      //Verisign Primary DNS server
-                new System.Net.IPAddress(new byte[] { 64, 6, 65, 6 }),      //Verisign Secondary DNS server
                 new System.Net.IPAddress(new byte[] { 8, 8, 8, 8 }),        //Google Primary DNS server
                 new System.Net.IPAddress(new byte[] { 8, 8, 4, 4 })         //Google Secondary DNS server
                 );
-            client.UseCache = true;
+            client.RequestDnsSecRecords = true;
             services.AddSingleton<ILookupClient>(client);
 
             services.AddCors();
