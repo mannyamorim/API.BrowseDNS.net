@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.13
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dns-api", "dns-api.csproj", "{8BFBF2D5-78DD-4E12-A055-257BCD8F24B2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnsClient", "..\DnsClient.NET\src\DnsClient\DnsClient.csproj", "{C8D40DA9-521C-46F2-9BF1-D8F453DE00C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DnsClient", "DnsClient.NET\src\DnsClient\DnsClient.csproj", "{E2122B2D-7C13-4EC9-8FB9-1FA1C4E46BD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{8BFBF2D5-78DD-4E12-A055-257BCD8F24B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BFBF2D5-78DD-4E12-A055-257BCD8F24B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BFBF2D5-78DD-4E12-A055-257BCD8F24B2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C8D40DA9-521C-46F2-9BF1-D8F453DE00C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C8D40DA9-521C-46F2-9BF1-D8F453DE00C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C8D40DA9-521C-46F2-9BF1-D8F453DE00C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C8D40DA9-521C-46F2-9BF1-D8F453DE00C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2122B2D-7C13-4EC9-8FB9-1FA1C4E46BD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2122B2D-7C13-4EC9-8FB9-1FA1C4E46BD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2122B2D-7C13-4EC9-8FB9-1FA1C4E46BD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2122B2D-7C13-4EC9-8FB9-1FA1C4E46BD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

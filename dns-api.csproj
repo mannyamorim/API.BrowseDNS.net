@@ -31,6 +31,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DnsClient.NET\src\DnsClient\DnsClient.csproj" />
+    <ProjectReference Include="DnsClient.NET\src\DnsClient\DnsClient.csproj" />
   </ItemGroup>
 </Project>
